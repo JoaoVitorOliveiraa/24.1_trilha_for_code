@@ -33,7 +33,7 @@ def Jokenpo():
 
         # Pede um símbolo ao jogador.
         time.sleep(0.3)
-        simboloInserido = input("\nPor favor, insira um símbolo: ")
+        simboloInserido = input("\nPor favor, insira um símbolo (pedra, papel ou tesoura): ")
         #print("\n")
         time.sleep(0.3)
 
