@@ -3,6 +3,7 @@
 # Exercícios A e B - Semana Um 
 
 from random import randint
+import math
 import time
 import sys
 
@@ -214,7 +215,37 @@ def Jokenpo():
 
     # Retorno da função.
     return True
-            
+
+def AvaliaConvergencia():
+    "Função responsável por verificar se uma série/sequência é convergente ou divergente."
+
+    # Inicialização da soma e do elemento inicial da sequência.
+    soma = 0
+    elemento = 2
+
+    time.sleep(0.5)
+    print("\nSequência:\n")
+    time.sleep(0.5)
+
+    # Estrutura de repetição que realiza a soma de cada elemento da série, indo do elemento 2 até o elemento 10000.
+    while elemento < 10000:
+        soma += (1/(elemento * (math.log(elemento, math.e) ** 2)))
+        elemento += 1
+        time.sleep(0.0015)
+        print(soma)
+    
+    # Caso o valor da soma for menor que infinito, a sequência é convergente.
+    if soma < math.inf:
+        time.sleep(0.3)
+        print("\nResultado: A Série é Convergente.\n")
+
+    # Caso contrário, a sequência é divergente.
+    else:
+        time.sleep(0.3)
+        print("\nResultado: A Série é Divergente.\n")    
+
+    return True
+
 
 if __name__ == "__main__":
     
@@ -235,10 +266,10 @@ if __name__ == "__main__":
     elif str.upper(exercicio) == "B":
         time.sleep(0.3)
         print("\n--> Exercício B\n")
+        AvaliaConvergencia()
 
     # Caso a opção seja inválida, aparecerá uma mensagem de erro.
     else:
         time.sleep(0.3)
         print("\nOpção Inválida! Tente Novamente.\n")
         time.sleep(0.3)
-    
