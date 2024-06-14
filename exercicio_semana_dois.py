@@ -1,6 +1,6 @@
 # TRILHA DE PYTHON DA FOR_CODE
 # Membro: João Vitor dos Santos Oliveira
-# Exercícios A e B - Semana Um
+# Exercício A - Semana Dois
 
 from random import randint
 import time 
@@ -32,6 +32,7 @@ def JogoDaForca():
     time.sleep(0.5)
 
     vidasDoJogador = 6
+    listaDeChutes = []
 
     # Estrutura de Repetição responsável pela inicialização do jogo.
     while True:
@@ -66,7 +67,7 @@ def JogoDaForca():
                 if temaDaObra == "Animes":
                     obrasDoTema = [chave for chave in jogosEletronicos.keys()]
                     obraEscolhida = obrasDoTema[randint(0, len(obrasDoTema)-1)]
-                
+                print(obraEscolhida)
                 # Ocultação a obra escolhida.
                 obraOculta = ""
                 for letra in obraEscolhida:
@@ -79,55 +80,87 @@ def JogoDaForca():
                 # Estrutura de Repetição responsável pelo funcionamento do jogo.
                 while True:
 
+                    # Condição que verifica se o usuário venceu o jogo.
+                    if obraOculta == obraEscolhida: 
+                        time.sleep(0.5)
+                        print("\nParabéns! Você venceu!\n")
+                        time.sleep(0.5)
+
+                        # Pergunta ao usuário se o mesmo gostaria de jogar novamente.
+                        jogarNovamente = input("Deseja jogar novamente (S/N): ")
+
+                        if jogarNovamente.lower() == "s":
+                            break
+
+                        if jogarNovamente.lower() == "n":
+                            time.sleep(0.5)
+                            sys.exit("\nFinalizando o jogo...\n")
+                        
+                        else:
+                            time.sleep(0.5)
+                            print("\nOpção Inválida!")
+                            time.sleep(0.5)
+                            print("Por favor, tente novamente.\n")
+                            continue   
+                    
                     print(f"\nObra: {obraOculta}\n")
                     time.sleep(0.5)
 
-                    if vidasDoJogador == 6:
-                        print(f"Dica 1 --> Tema da Obra: {temaDaObra}\n")
-                        time.sleep(0.5)
-                    
-                    if vidasDoJogador == 5:
-                        print(f"Dica 2 --> {dicionarioDoTema[obraEscolhida][0]}\n")
-                        time.sleep(0.5)
-                    
-                    if vidasDoJogador == 4:
-                        print(f"Dica 3 --> {dicionarioDoTema[obraEscolhida][0]}\n")
-                        time.sleep(0.5)
-                    
-                    if vidasDoJogador == 3:
-                        print(f"Dica 4 --> {dicionarioDoTema[obraEscolhida][0]}\n")
-                        time.sleep(0.5)
-                    
-                    if vidasDoJogador == 2:
-                        print(f"Dica 5 --> {dicionarioDoTema[obraEscolhida][0]}\n")
-                        time.sleep(0.5)
-                    
-                    if vidasDoJogador == 1:
-                        print(f"Dica 6 --> {dicionarioDoTema[obraEscolhida][0]}\n")
-                        time.sleep(0.5)
-                    
                     if vidasDoJogador == 0:
                         print("\nVocê perdeu!")
                         time.sleep(0.5)
                         sys.exit("Finalizando o jogo...")
-                        
+                    
+                    elif vidasDoJogador == 6:
+                        print(f"Dica 1 --> Tema da Obra: {temaDaObra}\n")
+                        time.sleep(0.5)
+                    
+                    elif vidasDoJogador == 5:
+                        print(f"Dica 2 --> {dicionarioDoTema[obraEscolhida][0]}\n")
+                        time.sleep(0.5)
+                    
+                    elif vidasDoJogador == 4:
+                        print(f"Dica 3 --> {dicionarioDoTema[obraEscolhida][0]}\n")
+                        time.sleep(0.5)
+                    
+                    elif vidasDoJogador == 3:
+                        print(f"Dica 4 --> {dicionarioDoTema[obraEscolhida][0]}\n")
+                        time.sleep(0.5)
+                    
+                    elif vidasDoJogador == 2:
+                        print(f"Dica 5 --> {dicionarioDoTema[obraEscolhida][0]}\n")
+                        time.sleep(0.5)
+                    
+                    elif vidasDoJogador == 1:
+                        print(f"Dica 6 --> {dicionarioDoTema[obraEscolhida][0]}\n")
+                        time.sleep(0.5)
 
                     chuteDoUsuario = input("Por favor, chute uma letra: ")
 
-                    if chuteDoUsuario in obraEscolhida:
+                    if (chuteDoUsuario.lower() in (obraEscolhida.lower())) and (chuteDoUsuario != " ") and (chuteDoUsuario != ""):
+                        listaDeChutes.append(chuteDoUsuario)
                         print("\nBom chute!")
-                        obraOculta = ""
+                        time.sleep(0.5)
 
+                        obraOculta = ""
                         for letra in obraEscolhida:
-                            if letra == chuteDoUsuario:
-                                obraOculta += f"{chuteDoUsuario} "
+                            print(letra)
+                            if letra == " ":
+                                obraOculta += "  "
+
+                            for chute in listaDeChutes:
+                                if letra == chute.lower():
+                                    obraOculta += f"{letra} "
+                                
+                                if letra == chute.upper():
+                                    obraOculta += f"{letra} "
                             
-                            else:
-                                obraOculta += "_ "
+                                else:
+                                    obraOculta += "_ "
                     
                     else:
                         vidasDoJogador -= 1
-                        print("\nChute ruim.")
+                        print("\nErrou o chute.")
                         time.sleep(0.5)
                         
 
@@ -144,6 +177,7 @@ def JogoDaForca():
             time.sleep(0.5)
             continue
 
+    # Mensagem de finalização do jogo.
     time.sleep(0.5)
     print("\nFinalizando o jogo...\n")
     time.sleep(0.5)
