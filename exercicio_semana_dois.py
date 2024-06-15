@@ -10,21 +10,33 @@ def JogoDaForca():
     "Função responsável pela execução do jogo da forca."
 
     # Lista que contém todos os temas do jogo.
-    listaDeTemas = ["Jogos Eletrônicos", "Filmes", "Séries", "Animes"]
+    listaDeTemas = ["Jogos", "Filmes", "Séries", "Animes"]
 
     # Dicionários que contém as palavras de cada tema e suas respectivas dicas.
-    jogosEletronicos = {"Fortnite": ["Gênero: Battle Royale"],
-                        "Call Of Duty": ["Gênero: Jogo de Tiro"],
-                        "League Of Legends": ["Gênero: "],
-                        "GTA": ["Gênero: "],
-                        "Minecraft": ["Gênero: "],
-                        "Fifa": ["Gênero: "]}
+    jogos = {"Fortnite": ["Gênero: Battle Royale", "Desenvolvedores: Epic Games e People Can Fly", "Plataformas: PC e Consoles", "Data de Lançamento: 21 de julho de 2017"],
+             "Call Of Duty": ["Gênero: Tiro em Primeira Pessoa", "Desenvolvedores: Infinity Ward e Nokia", "Plataformas: PC e Consoles", "Data de Lançamento: 29 de outubro de 2003"],
+             "League Of Legends": ["Gêneros: Multiplayer Online/Battle Arena", "Desenvolvedora: Riot Games", "Plataforma: PC", "Data de Lançamento: 27 de outubro de 2009"],
+             "GTA 5": ["Gêneros: Ação/Aventura/Tiro em terceira pessoa/Single-Player", "Desenvolvedora: Rockstar North", "Plataformas: PC e Consoles", "Data de Lançamento: 17 de setembro de 2013"],
+             "Minecraft": ["Gênero: Sobrevivência", "Desenvolvedores: Mojang Studios e Xbox Game Studios,", "Plataformas: PC e Consoles", "Data de Lançamento: 18 de novembro de 2011"],
+             "Fifa 15": ["Gênero: Esportes", "Desenvolvedora: Electronic Arts", "Plataformas: PC e Consoles", "Data de Lançamento: 23 de setembro de 2014"]}
     
-    filmes = {"Os Vingadores": ["Gênero: Super-Herói/Ação/Aventura/Ficção Científica", "Direção: Joss Whedon", "Duração: 2h 23min"],
-              "O Poderoso Chefão": ["Gênero: Drama/Policial", "Direção: Francis Ford Coppola", "Duração: 2h 55min"],
-              "Um Sonho de Liberdade": ["Gênero: Drama", "Direção: Frank Darabont", "Duração: 2h 22min"],
-              "Forrest Gump": ["Gênero: Comédia/Drama/Romance", "Direção: Robert Zemeckis", "Duração: 2h 20min"],
-              "Harry Potter e a Pedra Filosofal": ["Gênero: Infantil/Fantasia", "Direção: Chris Columbus", "Duração: 2h 32min"]}
+    filmes = {"Os Vingadores": ["Gêneros: Super-Herói/Ação/Aventura/Ficção Científica", "Direção: Joss Whedon", "Duração: 2h 23min", "Elenco: Robert Downey Jr., Chris Evans e Mark Ruffalo"],
+              "O Poderoso Chefão": ["Gêneros: Drama/Policial", "Direção: Francis Ford Coppola", "Duração: 2h 55min", "Elenco: Marlon Brando, Al Pacino e James Caan"],
+              "Um Sonho de Liberdade": ["Gênero: Drama", "Direção: Frank Darabont", "Duração: 2h 22min", "Elenco: Tim Robbins, Morgan Freeman e Bob Gunton"],
+              "Forrest Gump": ["Gêneros: Comédia/Drama/Romance", "Direção: Robert Zemeckis", "Duração: 2h 20min", "Elenco: Tom Hanks, Gary Sinise e Robin Wright"],
+              "Harry Potter e a Pedra Filosofal": ["Gêneros: Infantil/Fantasia", "Direção: Chris Columbus", "Duração: 2h 32min", "Elenco: Daniel Radcliffe, Emma Watson e Rupert Grint"]}
+    
+    series = {"The Boys": ["Gêneros: Drama/Ação/Quadrinhos", "Quantidade de Temporadas: 4", "Elenco: Karl Urban e Jack Quaid", "Protagonista: Billy Butcher"],
+              "Breaking Bad": ["Gênero: Drama", "Quantidade de Temporadas: 5", "Elenco: Bryan Cranston, Aaron Paul e Anna Gunn", "Protagonista: Walter White"],
+              "Supernatural": ["Gêneros: Drama/Terror/Fantasia", "Quantidade de Temporadas: 15", "Elenco: Jared Padalecki, Jensen Ackles e Misha Collins", "Protagonistas: Sam Winchester e Dean Winchester"],
+              "Peaky Blinders": ["Gênero: Policial/Drama/Histórico", "Quantidade de Temporadas: 4", "Elenco: Cillian Murphy e Natasha O'Keeffe", "Protagonista: Thomas Shelby"],
+              "Stranger Things": ["Gênero: Drama/Fantasia/Ficção Científica/Suspense", "Quantidade de Temporadas: 4", "Elenco: Winona Ryder, David Harbour e Millie Bobby Brown", "Protagonistas: Will Byers, Jim Hopper e Eleven"]}
+    
+    animes = {"Naruto": ["Gêneros: Aventura/Comédia Dramática/Fantasia/Shounen", "Número de Episódios: 220", "Autor: Masashi Kishimoto", "Protagonista: Naruto Uzumaki"],
+              "Dragon Ball": ["Gêneros: Aventura/Fantasia/Shounen", "Número de Episódios: 153", "Autor: Akira Toriyama", "Protagonista: Goku"],
+              "Death Note": ["Gêneros: Mistério/Suspense Psicológico/Suspense", "Número de Episódios: 37", "Autores: Tsugumi Ohba e Takeshi Obata", "Protagonista: Light Yagami"],
+              "Attack on Titan": ["Gêneros: Ação/Fantasia Sombria/Ficção Pós-Apocalíptica/Drama/Shōnen", "Número de Episódios: 94", "Autor: Hajime Isayama", "Protagonista: Eren Yeager"],
+              "One Punch Man": ["Gêneros: Comédia/Ação/Sátira", "Número de Episódios: 24", "Autores: One e Yusuke Murata", "Protagonista: Saitama"]}
     
     # Introdução do Jogo da Forca.
     time.sleep(0.3)
@@ -50,8 +62,8 @@ def JogoDaForca():
                 temaDaObra = listaDeTemas[randint(0, len(listaDeTemas)-1)]
 
                 # Escolhe uma obra, tendo como base seu tema.
-                if temaDaObra == "Jogos Eletrônicos":
-                    dicionarioDoTema = jogosEletronicos
+                if temaDaObra == "Jogos":
+                    dicionarioDoTema = jogos
                     obrasDoTema = [chave for chave in dicionarioDoTema.keys()]
                     obraEscolhida = obrasDoTema[randint(0, len(obrasDoTema)-1)]
                 
@@ -61,11 +73,13 @@ def JogoDaForca():
                     obraEscolhida = obrasDoTema[randint(0, len(obrasDoTema)-1)]
                 
                 if temaDaObra == "Séries":
-                    obrasDoTema = [chave for chave in jogosEletronicos.keys()]
+                    dicionarioDoTema = series
+                    obrasDoTema = [chave for chave in dicionarioDoTema.keys()]
                     obraEscolhida = obrasDoTema[randint(0, len(obrasDoTema)-1)]
                 
                 if temaDaObra == "Animes":
-                    obrasDoTema = [chave for chave in jogosEletronicos.keys()]
+                    dicionarioDoTema = animes
+                    obrasDoTema = [chave for chave in dicionarioDoTema.keys()]
                     obraEscolhida = obrasDoTema[randint(0, len(obrasDoTema)-1)]
                 print(obraEscolhida)
                 # Ocultação a obra escolhida.
@@ -120,19 +134,19 @@ def JogoDaForca():
                         time.sleep(0.5)
                     
                     elif vidasDoJogador == 4:
-                        print(f"Dica 3 --> {dicionarioDoTema[obraEscolhida][0]}\n")
+                        print(f"Dica 3 --> {dicionarioDoTema[obraEscolhida][1]}\n")
                         time.sleep(0.5)
                     
                     elif vidasDoJogador == 3:
-                        print(f"Dica 4 --> {dicionarioDoTema[obraEscolhida][0]}\n")
+                        print(f"Dica 4 --> {dicionarioDoTema[obraEscolhida][2]}\n")
                         time.sleep(0.5)
                     
                     elif vidasDoJogador == 2:
-                        print(f"Dica 5 --> {dicionarioDoTema[obraEscolhida][0]}\n")
+                        print(f"Dica 5 --> {dicionarioDoTema[obraEscolhida][3]}\n")
                         time.sleep(0.5)
                     
                     elif vidasDoJogador == 1:
-                        print(f"Dica 6 --> {dicionarioDoTema[obraEscolhida][0]}\n")
+                        print(f"Dica 6 --> {dicionarioDoTema[obraEscolhida][4]}\n")
                         time.sleep(0.5)
 
                     chuteDoUsuario = input("Por favor, chute uma letra: ")
