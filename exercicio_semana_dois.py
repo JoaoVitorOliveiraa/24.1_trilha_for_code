@@ -41,7 +41,7 @@ def JogoDaForca():
     
     # Introdução do Jogo da Forca.
     time.sleep(0.3)
-    print("\n\t\t-----Jogo da Forca-----\n")
+    print("\n\t\t-----JOGO DA FORCA-----\n")
     time.sleep(0.5)
 
     # Inicialização das vidas do jogador, da lista que contém todos seus chutes e da variável que determina seu ele venceu a partida.
